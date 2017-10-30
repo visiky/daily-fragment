@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My app</title>
+    <style>
+        body {
+            font-family: monospace;
+            color: tomato;
+            display: flex;
+        }
+
+        #dirs {
+            width: 200px;
+        }
+
+        #dirs li>b {
+            cursor: auto;
+            color: #333;
+        }
+        #dirs li {
+            cursor: pointer;
+        }
+        
+        canvas {
+            width: 600px !important;
+            height: 600px !important;
+        }
+        
+    </style>
+    <script src="./libs/three.js.r58/three.js"></script>
+    <script src="./libs/three.js.r58/Detector.js"></script>
+    <script src="./libs/three.js.r58/libs/stats.min.js"></script>
+    <script src="./libs/three.js.r58/libs/dat.gui.min.js"></script>
+    <script src="../libs/requestAnimationFrame/index.js"></script>
+</head>
+<body>
+    <div>
+        <ul id="dirs">
+            <li><b>chapter 2</b></li>
+            <ul>
+                <li name="chapter2_3D_animated">3D动画图形</li>
+                <li name="chapter2_simple_webgl">简单的webgl程序</li>
+            </ul>
+            <li><b>chapter 3</b></li>
+            <ul>
+                <li name="chapter3_simple_threejs">Three.js 简单入门</li>
+                <li name="chapter3_add_light">添加光照</li>
+                <li name="chapter3-add-axes">添加坐标轴</li>
+            </ul>
+            <li><b>chapter 4</b></li>
+            <ul>
+                <li name="chapter4-webgl-geometories">WebGL内置几何图形</li>
+            </ul> 
+        </ul>
+    </div>
+<script>
+    const hash = localStorage.getItem('script');
+    const file = (hash && hash!=='null') ? `${hash}.js` : 'index.js';
+    if (/chapter2/.test(hash)) {
+        document.write(`\<script src="./libs/gl-matrix/index.js"\>\<\/script\>`);    
+    }
+    const script = document.createElement('script');
+    script.src = file;
+    document.body.appendChild(script);
+   
+    const dirs = document.getElementById('dirs');
+    traverseDir(dirs);
+
+    function traverseDir(root) {
+        [].map.call(root.children, tag => {
+            if (tag.tagName.toUpperCase() === 'UL') {
+                traverseDir(tag);
+            } else if (tag.tagName.toUpperCase() === 'LI') {
+                tag.addEventListener('click', () => {
+                    const name = tag.getAttribute('name');
+                    if (name) {
+                        localStorage.setItem('script', name)
+                        location.reload();
+                    }
+                });
+            }
+        });
+    }
+</script>
+</body>
+</html>

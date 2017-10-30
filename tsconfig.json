@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "declaration": true,
+    "declarationDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": false,
+    "module": "commonjs",
+    "target": "es5",
+    "allowJs": false,
+    "types": [
+      "node"
+    ],
+    "baseUrl": "debug-dev"
+  },
+  "files": [
+    "src/index.ts"
+  ],
+  "compileOnSave": false
+}

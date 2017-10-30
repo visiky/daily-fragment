@@ -1,0 +1,10 @@
+.git/
+.idea/
+coverage/
+debug-ground/debug-dev-on-nodejs/
+debug-ground/debug-test-on-nodejs/
+node_modules/
+temp/
+dist/
+npm-debug.log
+bash.exe.stackdump
