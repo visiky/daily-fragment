@@ -77,6 +77,8 @@
                     if (name) {
                         localStorage.setItem('script', name)
                         location.reload();
+                    } else {
+                        traverseDir(tag);
                     }
                 });
             }

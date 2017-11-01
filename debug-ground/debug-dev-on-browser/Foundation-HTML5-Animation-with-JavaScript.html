@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>HTML 和 JavaScript基础学习</title>
+  <style>
+    body {
+      font-family: monospace;
+      color: tomato;
+      display: flex;
+    }
+
+    canvas {
+      border: 1px solid rgb(238, 213, 217);
+    }
+    #dirs {
+      width: 200px;
+    }
+
+    #dirs li>b {
+      cursor: auto;
+      color: #333;
+    }
+
+    #dirs li {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <ul id="dirs">
+    <li>
+      <b>chapter 3 动画中的三角学</b>
+      <ul>
+        <li name="chapter3/rotateToMouse">rotateToMouse</li>
+        <li name="chapter3/random">乱跑的球</li>
+        <li name="chapter3/pluse">脉冲运动</li>
+        <li name="chapter3/sineWave">正弦波</li>
+      </ul>
+      <b>chapter 8 缓动和弹动</b>
+      <ul>
+        <li name="chapter8/easing01">缓动基础示例1</li>
+      </ul>
+    </li>
+  </ul>
+  <script>
+    const dirs = document.getElementById('dirs');
+    traverseDir(dirs);
+    function traverseDir(root) {
+      [].map.call(root.children, tag => {
+        if (tag.tagName.toUpperCase() === 'UL') {
+          traverseDir(tag);
+        } else if (tag.tagName.toUpperCase() === 'LI') {
+          tag.addEventListener('click', () => {
+            const name = tag.getAttribute('name');
+            if (name) {
+              localStorage.setItem('html5-animation', name);
+              location.reload();
+            } else {
+              traverseDir(tag);
+            }
+          });
+        }
+      });
+    } 
+  </script>
+  <script src="html5-animation.js"></script>  
+</body>
+</html>
