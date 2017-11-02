@@ -22,8 +22,8 @@ export function run() {
 
     const bounds = ball.getBounds();
     const lineWidth = ball.getLineWidth();
-    // const rect = context.rect(bounds.x, bounds.y, bounds.width, bounds.height);
-    // context.stroke();
+    context.rect(bounds.x, bounds.y, bounds.width, bounds.height);
+    context.stroke();
     // 经过测试，需要考虑 strokeWidth
     context.clearRect(bounds.x - lineWidth, bounds.y - lineWidth,
         bounds.width + 2 * lineWidth, bounds.height + 2 * lineWidth);

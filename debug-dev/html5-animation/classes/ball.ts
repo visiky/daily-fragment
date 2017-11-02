@@ -1,23 +1,13 @@
 import utils from '../includes/utils';
+import Geometry from './geometry';
 
-export default class Ball {
+export default class Ball extends Geometry {
 
-  public x = 0;
-  public y = 0;
-  // 速度
-  public vx = 0;
-  public vy = 0;
-  public rotation = 0;
-  public scaleX = 1;
-  public scaleY = 1;
   public radius;
-  public lineWidth = 1;
-  public color;
-  public strokeStyle;
-
   constructor(options?: {
     [type: string]: any,
   }) {
+    super();
     options = options || {};
     this.radius = options.radius || 20;
     this.color = utils.parseColor(options.color || '#FFC107');
@@ -43,29 +33,12 @@ export default class Ball {
     context.restore();
   }
 
-  public setPosition = (x?: number, y?: number) => {
-    this.x = x || this.x;
-    this.y = y || this.y;
-  }
-
-  public movePosition = (dx?: number, dy?: number) => {
-    this.x += (dx || 0);
-    this.y += (dy || 0);
-  }
-
   public setScale = (scaleX?: number, scaleY?: number) => {
     this.scaleX = scaleX || this.scaleX;
     this.scaleY = scaleY || this.scaleY;
   }
 
-  public getPosition() {
-    return {
-      x: this.x,
-      y: this.y,
-    };
-  }
-
-  public getBounds() {
+  public getBounds = () => {
     // FIXME 考虑scale的影响
     return {
       x: this.x - this.radius,

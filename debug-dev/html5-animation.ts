@@ -8,7 +8,7 @@ import * as easingToMouse from './html5-animation/chapter08/easing-to-mouse';
 import * as chainSpring from './html5-animation/chapter08/chain-spring';
 import * as tripleSpring from './html5-animation/chapter08/triple-spring';
 import * as multiSpring from './html5-animation/chapter08/multi-spring';
-
+import * as tetris from './html5-animation/chapter09/tetris';
 
 // 引入模块
 const chapter3 = {
@@ -27,6 +27,10 @@ const chapter8 = {
   chainSpring,
 };
 
+const chapter9 = {
+  tetris,
+};
+
 const MODULES: {
   [chapterName: string]: {
     [moduleName: string]: {
@@ -36,6 +40,7 @@ const MODULES: {
 } = {
   chapter3,
   chapter8,
+  chapter9,
 };
 
 function start() {

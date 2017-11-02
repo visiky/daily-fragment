@@ -14,7 +14,7 @@
   "scripts": {
     "clear": "rimraf build temp",
     "debug-build": "rimraf build && webpack --config webpack.debug-dev.nodejs.config.js --watch",
-    "start": "webpack-dev-server --config webpack.debug-dev.browser.config.js --port 8027 --devtool eval --progress --hot --content-base debug-ground/debug-dev-on-browser --host 0.0.0.0",
+    "start": "npm run debug-browser",
     "debug-browser": "webpack-dev-server --config webpack.debug-dev.browser.config.js --port 8027 --devtool eval --progress --hot --content-base debug-ground/debug-dev-on-browser --host 0.0.0.0",
     "debug-devtools": "node --inspect ./debug-ground/debug-dev-on-nodejs/index.js  && npm run debug-devtools",
     "debug-devtools-brk": "node --inspect --debug-brk ./debug-ground/debug-dev-on-nodejs/index.js  && npm run debug-devtools-brk",

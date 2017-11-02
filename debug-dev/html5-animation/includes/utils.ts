@@ -1,4 +1,5 @@
 import { captureMouse, getEventAbsCoord } from './mouse';
+import Geometry from 'dist/debug-dev/html5-animation/classes/geometry';
 /**
  * Normalize the browser animation API across implementations. This requests
  * the browser to schedule a repaint of the window for the next animation frame.
@@ -176,6 +177,15 @@ const intersects = (rectA: any, rectB: any) => {
   );
 };
 
+const containsObject = (container: Geometry, object: Geometry): boolean => {
+  const outter = container.getBounds();
+  const inner = object.getBounds();
+  return !(
+    outter.x > inner.x || outter.x + outter.width >= inner.x + inner.width ||
+    outter.y > inner.y || outter.y + outter.height >= inner.y + inner.height
+  );
+};
+
 export default {
   captureMouse,
   captureTouch,
@@ -183,4 +193,5 @@ export default {
   parseColor,
   containsPoint,
   intersects,
+  containsObject,
 };
