@@ -36,7 +36,7 @@ function initViewport(gl: WebGLRenderingContext, canvas: HTMLCanvasElement) {
 // 4. 初始化立方体、颜色和索引缓冲数据
 function createCube(gl: WebGLRenderingContext) {
 
-  let vertexBuffer: WebGLBuffer;
+  let vertexBuffer: WebGLBuffer|null;
   vertexBuffer = gl.createBuffer();
   gl.bindBuffer(gl.ARRAY_BUFFER, vertexBuffer);
   const verts = [
@@ -89,7 +89,7 @@ function createCube(gl: WebGLRenderingContext) {
     [1.0, 0.0, 1.0, 1.0], // Right face
     [0.0, 1.0, 1.0, 1.0],  // Left face
   ];
-  let vertexColors = [];
+  let vertexColors: any[] = [];
   // tslint:disable-next-line:forin
   for (const i in faceColors) {
     const color = faceColors[i];
@@ -124,10 +124,10 @@ function createCube(gl: WebGLRenderingContext) {
 }
 
 // 5. 初始化 投影矩阵 和 模型-视图矩阵
-let projectionMatrix;
-let modelViewMatrix;
+let projectionMatrix: any;
+let modelViewMatrix: any;
 // 定义旋转轴
-let rotationAxis;
+let rotationAxis: any;
 function initMatrices(canvas: HTMLCanvasElement) {
   // create a modelViewMatrix, include a camera located in (0, 0, -8)
   modelViewMatrix = (window as any).mat4.create();
@@ -157,8 +157,8 @@ function createShader(
   gl: WebGLRenderingContext,
   str: string,
   type: SHADER_TYPE,
-): WebGLShader {
-  let shader: WebGLShader;
+): WebGLShader|null {
+  let shader: WebGLShader|null;
   if (type === SHADER_TYPE.fragment) {
     shader = gl.createShader(gl.FRAGMENT_SHADER);
   } else if (type === SHADER_TYPE.vertex) {
@@ -201,11 +201,11 @@ const fragmentShaderSource =
          gl_FragColor = vColor;\n
     }\n`;
 
-let shaderProgram: WebGLProgram;
+let shaderProgram: WebGLProgram|null;
 let shaderVertexPositionAttribute: number;
 let shaderVertexColorAttribute: number;
-let shaderProjectionMatrixUniform;
-let shaderModelViewMatrixUniform;
+let shaderProjectionMatrixUniform: any;
+let shaderModelViewMatrixUniform: any;
 
 // 7. 使用各种参数初始化着色器
 function initShader(gl: WebGLRenderingContext) {
@@ -248,7 +248,7 @@ function initShader(gl: WebGLRenderingContext) {
 }
 
 // 8. 绘制图元
-function draw(gl: WebGLRenderingContext, obj) {
+function draw(gl: WebGLRenderingContext, obj: any) {
   // clear the background (with black)
   gl.clearColor(0.0, 0.0, 0.0, 1.0);
   gl.enable(gl.DEPTH_TEST);
@@ -298,7 +298,7 @@ function animate() {
     (window as any).mat4.rotate(modelViewMatrix, modelViewMatrix, angle, rotationAxis);
 }
 
-function run(gl: WebGLRenderingContext, cube) {
+function run(gl: WebGLRenderingContext, cube: any) {
     requestAnimationFrame(() => { run(gl, cube); });
     draw(gl, cube);
     animate();

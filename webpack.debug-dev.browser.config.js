@@ -22,7 +22,7 @@ const config = {
     extensions: [".webpack.js", ".web.js", ".ts", ".tsx", ".js", ".jsx"]
   },
   module: {
-    loaders: loaders
+    loaders,
   },
   node: {
     // universal app? place here your conditional imports for node env
@@ -30,7 +30,7 @@ const config = {
     path: "empty",
     child_process: "empty",
   },
-  plugins: plugins,
+  plugins,
 };
 
 function  genEntry() {

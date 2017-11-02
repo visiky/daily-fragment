@@ -1,11 +1,14 @@
-import * as debug from 'debug';
 import * as rotateToMouse from './html5-animation/chapter03/rotate-to-mouse';
 import * as pluse from './html5-animation/chapter03/pluse';
 import * as random from './html5-animation/chapter03/random';
 import * as sineWave from './html5-animation/chapter03/sine-wave';
 import * as easing01 from './html5-animation/chapter08/easing-1';
+import * as easing02 from './html5-animation/chapter08/easing-2';
+import * as easingToMouse from './html5-animation/chapter08/easing-to-mouse';
+import * as chainSpring from './html5-animation/chapter08/chain-spring';
+import * as tripleSpring from './html5-animation/chapter08/triple-spring';
+import * as multiSpring from './html5-animation/chapter08/multi-spring';
 
-const logger = debug('html5-animation');
 
 // 引入模块
 const chapter3 = {
@@ -17,6 +20,11 @@ const chapter3 = {
 
 const chapter8 = {
   easing01,
+  easing02,
+  easingToMouse,
+  tripleSpring,
+  multiSpring,
+  chainSpring,
 };
 
 const MODULES: {

@@ -1,9 +1,7 @@
 import Ball from '../classes/ball';
 import createCavans from '../base/createCanvas';
-import { transformToAngle, smallestRect } from '../base/utils';
-import * as debug from 'debug';
+import { transformToAngle } from '../base/utils';
 
-const logger = debug('html5-animation:sine-wave');
 export function run() {
   const canvas = createCavans() as HTMLCanvasElement;
   canvas.width = 1000;

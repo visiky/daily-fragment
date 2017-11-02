@@ -1,17 +1,19 @@
 import utils from '../includes/utils';
-import { smallestRect } from '../base/utils';
 
 export default class Ball {
 
-  private x = 0;
-  private y = 0;
-  private rotation = 0;
-  private scaleX = 1;
-  private scaleY = 1;
-  private radius;
-  private lineWidth = 1;
-  private color;
-  private strokeStyle;
+  public x = 0;
+  public y = 0;
+  // 速度
+  public vx = 0;
+  public vy = 0;
+  public rotation = 0;
+  public scaleX = 1;
+  public scaleY = 1;
+  public radius;
+  public lineWidth = 1;
+  public color;
+  public strokeStyle;
 
   constructor(options?: {
     [type: string]: any,
@@ -42,12 +44,8 @@ export default class Ball {
   }
 
   public setPosition = (x?: number, y?: number) => {
-    if (x) {
-      this.x = x;
-    }
-    if (y) {
-      this.y = y;
-    }
+    this.x = x || this.x;
+    this.y = y || this.y;
   }
 
   public movePosition = (dx?: number, dy?: number) => {
@@ -56,12 +54,8 @@ export default class Ball {
   }
 
   public setScale = (scaleX?: number, scaleY?: number) => {
-    if (scaleX) {
-      this.scaleX = scaleX;
-    }
-    if (scaleY) {
-      this.scaleY = scaleY;
-    }
+    this.scaleX = scaleX || this.scaleX;
+    this.scaleY = scaleY || this.scaleY;
   }
 
   public getPosition() {

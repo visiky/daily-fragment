@@ -6,6 +6,7 @@ function createCavans(): HTMLCanvasElement {
   if (!canvas) {
     canvas = document.createElement('canvas');
     document.body.appendChild(canvas);
+    canvas.id = 'canvas';
     canvas.width = DEFAULT_CANVAS_WIDTH;
     canvas.height = DEFAULT_CANVAS_HEIGHT;
   }

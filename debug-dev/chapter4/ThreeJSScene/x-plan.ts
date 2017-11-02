@@ -5,10 +5,9 @@ import { createScene } from '../../utils/Scene';
 import { createGroup } from '../../utils/Group';
 import { createCamera } from '../../utils/Camera';
 import { addMouseHandler } from '../../utils/MouseHandler';
-import { IPosition } from '../../interface';
 
-const REVOLUTION_DURATION = 3650; // ms
-const ROTATION_DURATION = 10; // ms
+// const REVOLUTION_DURATION = 3650; // ms
+// const ROTATION_DURATION = 10; // ms
 
 // Basic: Renderer, Camera && Scene
 
@@ -17,9 +16,9 @@ const ROTATION_DURATION = 10; // ms
  * 1. - [ ] Object3D of earth
  */
 
-function setCamera(camera: THREE.PerspectiveCamera, position: IPosition) {
-  camera.position.set(position.x, position.y, position.z);
-}
+// function setCamera(camera: THREE.PerspectiveCamera, position: IPosition) {
+//   camera.position.set(position.x, position.y, position.z);
+// }
 
 function init(canvas?: HTMLCanvasElement) {
   // Step 1

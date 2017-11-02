@@ -10,7 +10,8 @@
        "arrow-parens": false,
        "ordered-imports": false,
        "no-empty": false,
-       "variable-name": false
+       "variable-name": false,
+       "ban-types": false
     },
     "rulesDirectory": []
 }
