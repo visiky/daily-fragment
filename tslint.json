@@ -11,7 +11,8 @@
        "ordered-imports": false,
        "no-empty": false,
        "variable-name": false,
-       "ban-types": false
+       "ban-types": false,
+       "no-unused-variable": false
     },
     "rulesDirectory": []
 }

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Demo of Learning Three.js</title>
+  <script src="./libs/three.js.r58/three.js"></script>
+  <script src="./libs/three.js.r58/Detector.js"></script>
+  <script src="./libs/three.js.r58/libs/stats.min.js"></script>
+  <script src="./libs/three.js.r58/libs/dat.gui.min.js"></script>
+  <script src="../libs/requestAnimationFrame/index.js"></script>
+  <style>
+    body {
+      font-size: 12px;
+      width: 100vw;
+      height: 100vh;
+      padding: 0;
+      margin: 0;
+      overflow: hidden;
+    }
+    .app-container {
+      display: flex;
+      margin: 20px 300px 20px 20px;
+      height: calc(100% - 40px);
+      color: tomato;
+    }
+    canvas {
+      border: 1px solid rgb(238, 213, 217);
+    }
+
+    #dirs {
+      width: 200px;
+    }
+
+    #dirs li>b {
+      cursor: auto;
+      color: #333;
+    }
+
+    #dirs li {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app-container">
+    <ul id="dirs">
+      <li>
+        <b>chapter 1 开始学习three.js</b>
+        <ul>
+          <li name="chapter1/usingDatGUI">使用dat.GUI进行控制</li>
+        </ul>
+        <b>chapter 6 高级几何图形</b>
+        <ul>
+          <li name="chapter6/convexGeometry">convexGeometry</li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  <script>
+    if (!localStorage.getItem('threejs-demo')) {
+      localStorage.setItem('threejs-demo', '');
+    }
+    const dirs = document.getElementById('dirs');
+    traverseDir(dirs);
+    function traverseDir(root) {
+      [].map.call(root.children, tag => {
+        if (tag.tagName.toUpperCase() === 'UL') {
+          traverseDir(tag);
+        } else if (tag.tagName.toUpperCase() === 'LI') {
+          tag.addEventListener('click', () => {
+            const name = tag.getAttribute('name');
+            if (name) {
+              localStorage.setItem('threejs-demo', name);
+              location.reload();
+            } else {
+              traverseDir(tag);
+            }
+          });
+        }
+      });
+    } 
+  </script>
+  <script src="threejs-demo.js"></script>
+</body>
+
+</html>
