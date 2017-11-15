@@ -3,7 +3,7 @@ import { AppContainer, DEFAULT_CANVAS_HEIGHT, DEFAULT_CANVAS_WIDTH,
   DEFAULT_ROTATION_SPEED } from '../configs/constants';
 
 function createCanvas(width: number = DEFAULT_CANVAS_WIDTH, height = DEFAULT_CANVAS_HEIGHT) {
-  const canvas = document.createElement('canvas') as HTMLCanvasElement;
+  const canvas = document.getElementsByTagName('canvas')[0] || document.createElement('canvas') as HTMLCanvasElement;
   canvas.width = width;
   canvas.height = height;
   AppContainer.appendChild(canvas);

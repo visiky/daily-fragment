@@ -6,10 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Demo of Learning Three.js</title>
-  <script src="./libs/three.js.r58/three.js"></script>
-  <script src="./libs/three.js.r58/Detector.js"></script>
-  <script src="./libs/three.js.r58/libs/stats.min.js"></script>
-  <script src="./libs/three.js.r58/libs/dat.gui.min.js"></script>
+  <script src="./libs/three.js.r84/three.js"></script>
+  <script src="./libs/three.js.r84/Detector.js"></script>
+  <!-- <script src="./libs/three.js.r84/libs/physi.js"></script> -->
+  <script src="./libs/three.js.r84/libs/stats.min.js"></script>
+  <script src="./libs/three.js.r84/libs/dat.gui.min.js"></script>
   <script src="../libs/requestAnimationFrame/index.js"></script>
   <style>
     body {
@@ -28,6 +29,7 @@
     }
     canvas {
       border: 1px solid rgb(238, 213, 217);
+      background: #FFF;
     }
 
     #dirs {
@@ -52,6 +54,11 @@
         <b>chapter 1 开始学习three.js</b>
         <ul>
           <li name="chapter1/usingDatGUI">使用dat.GUI进行控制</li>
+        </ul>
+        <b>chapter 2</b>
+        <ul>
+          <li name="chapter2/createThreeScene">创建Three场景(scene)</li>
+          <li name="chapter2/geometries">几何立体</li>
         </ul>
         <b>chapter 6 高级几何图形</b>
         <ul>
@@ -83,6 +90,11 @@
         }
       });
     } 
+  </script>
+  <script>
+    // configure Physi
+    // Physijs.scripts.worker = '../libs/three.js.r84/libs/physijs_worker.js';
+    // Physijs.scripts.ammo = '../libs/three.js.r84/libs/ammo.js';
   </script>
   <script src="threejs-demo.js"></script>
 </body>

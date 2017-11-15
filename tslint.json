@@ -5,14 +5,17 @@
     ],
     "jsRules": {},
     "rules": {
-       "quotemark": [true, "single"],
+       "quotemark": false,
        "object-literal-sort-keys": false,
        "arrow-parens": false,
        "ordered-imports": false,
        "no-empty": false,
        "variable-name": false,
        "ban-types": false,
-       "no-unused-variable": false
+       "no-unused-variable": false,
+       "max-classes-per-file": false,
+       "interface-name": false,
+       "no-unused-expression": false
     },
     "rulesDirectory": []
 }

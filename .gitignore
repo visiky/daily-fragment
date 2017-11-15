@@ -8,3 +8,9 @@ temp/
 dist/
 npm-debug.log
 bash.exe.stackdump
+
+
+# 暂时不添加 physi.js
+debug-ground/debug-dev-on-browser/libs/three.js.r84/libs/physi.js
+debug-ground/debug-dev-on-browser/libs/three.js.r84/libs/physijs_worker.js
+debug-ground/debug-dev-on-browser/libs/three.js.r84/libs/ammo.js

@@ -7,28 +7,36 @@ if (!(window as any).Detector.webgl) {
   (window as any).addGetWebGLMessage();
 }
 
-import { IMAGE_BASEURL } from './configs/constants';
+import { IMAGE_BASEURL } from '../configs/constants';
+import { createScene } from '../utils/Scene';
+import { createCamera } from '../utils/Camera';
+import { createRenderer } from '../utils/Renderer';
+import debug from 'debug';
+import GUI from '../utils/Global/Gui';
 
-let container: HTMLDivElement;
+const logger = debug('threejs:createScene');
 
 // tslint:disable-next-line:one-variable-per-declaration
 let camera: THREE.PerspectiveCamera,
   scene: THREE.Scene,
   renderer: THREE.WebGLRenderer;
 
-function init() {
-  container = document.createElement('div');
-  container.style.position = 'relative';
-  document.body.insertBefore(container, document.body.lastChild);
+  /**
+   * @todo 调整一下位置
+   */
+export function run() {
+  new Controller();
 
-  camera = new THREE.PerspectiveCamera(
-    45,
-    window.innerWidth / window.innerHeight,
-    1,
-    2000,
-  );
+  renderer = createRenderer();
+  // 重新调整renderer
+  renderer.setClearColor(new THREE.Color(255, 255, 255));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.shadowMap.enabled = true;
 
-  scene = new THREE.Scene();
+  scene = createScene();
+  // 添加相机
+  camera = createCamera();
+  scene.add(camera);
 
   // tslint:disable-next-line:one-variable-per-declaration
   let light: THREE.Light, object: THREE.Object3D;
@@ -97,10 +105,7 @@ function init() {
   object.position.set(400, 0, -200);
   scene.add(object);
 
-  renderer = new THREE.WebGLRenderer({ antialias: true });
-  renderer.setClearColor('#DEFFF3');
   renderer.setSize(window.innerWidth, window.innerHeight);
-  container.appendChild(renderer.domElement);
   // Add JS Performance Monitor
   const stats = initStats();
   animate(stats);
@@ -112,13 +117,14 @@ function init() {
 function initStats() {
   const stats = new (window as any).Stats();
   stats.setMode(0);
-  container.appendChild(stats.domElement);
+  document.body.appendChild(stats.domElement);
   stats.domElement.style.position = 'absolute';
   stats.domElement.style.left = '0px';
   stats.domElement.style.top = '0px';
 
   return stats;
 }
+// 监听resize事件
 function onWindowResize() {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
@@ -135,8 +141,10 @@ function animate(stats?) {
 
 function render() {
   const timer = Date.now() * 0.0001;
-  camera.position.x = Math.cos(timer) * 800;
-  camera.position.z = Math.sin(timer) * 800;
+
+  camera.position.x = 100;
+  camera.position.y = 100;
+  camera.position.z = 1000;
   // 使相机随着scene旋转
   camera.lookAt(scene.position);
   for (let i = 0, l = scene.children.length; i < l; i += 1) {
@@ -150,4 +158,18 @@ function render() {
 /**
  * Start the application
  */
-init();
+
+class Controller {
+  constructor() {
+    this.init();
+  }
+
+  public outputObjects = () => {
+    logger(scene.children);
+  }
+
+  private init() {
+    const gui = new GUI();
+    gui.add(this, 'outputObjects');
+  }
+}
