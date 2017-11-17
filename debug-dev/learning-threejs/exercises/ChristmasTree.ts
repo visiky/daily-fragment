@@ -6,7 +6,7 @@ import * as THREE from 'three';
 /**
  * Create a Star
  */
-class Star {
+export class Star {
   constructor() {
     this.init();
   }
@@ -33,20 +33,20 @@ class Star {
 /**
  * Create a Gift box
  */
-class Decoration {
-  constructor() {}
-}
+// class Decoration {
+//   constructor() {}
+// }
 /**
-  * Create a Bell
-  */
-class Bell {
-  constructor() {}
-}
+ * Create a Bell
+ */
+// class Bell {
+//   constructor() {}
+// }
 
 /**
  * Create Leaf
  */
-class Leaf {
+export class Leaf {
   constructor() {
     this.init();
   }
@@ -74,6 +74,6 @@ class Leaf {
 /**
  * Create a Tree
  */
-class Tree {
-  constructor() {}
-}
+// class Tree {
+//   constructor() {}
+// }

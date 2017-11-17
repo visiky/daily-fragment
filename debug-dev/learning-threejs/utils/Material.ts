@@ -18,7 +18,8 @@ function createLambertMaterail(options: {
 function createPhongMaterial(options: {
   color?: string|number,
   map?: THREE.Texture,
-}): THREE.MeshLambertMaterial {
+  [type: string]: any,
+} = {}): THREE.MeshLambertMaterial {
 
   const {
     color = Math.random() * 0xffffff,

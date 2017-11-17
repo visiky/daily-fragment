@@ -1,19 +1,32 @@
 import * as THREE from 'three';
 import { DEFAULT_CANVAS_HEIGHT, DEFAULT_CANVAS_WIDTH, DEFAULT_ROTATION_SPEED } from '../configs/constants';
 
-function createRenderer(canvas?: HTMLCanvasElement): THREE.WebGLRenderer {
+function transformToColor(color: THREE.Color|number): THREE.Color {
+  if (color instanceof THREE.Color) {
+    return color;
+  } else if (typeof color === "number") {
+    return new THREE.Color(color);
+  }
+  return new THREE.Color();
+}
+
+function createRenderer(canvas?: HTMLCanvasElement, options: {
+  clearColor?: THREE.Color,
+} = {}): THREE.WebGLRenderer {
   let renderer: THREE.WebGLRenderer;
+  const clearColor = transformToColor(options.clearColor);
   if (canvas) {
     renderer = new THREE.WebGLRenderer({
       canvas,
       antialias: true,
     });
     // set backgroundColor of Renderer
-    renderer.setClearColor(new THREE.Color(0xeeeeee));
+    renderer.setClearColor(clearColor);
     renderer.setSize(canvas.width, canvas.height);
   } else {
     renderer = new THREE.WebGLRenderer();
     renderer.setSize(DEFAULT_CANVAS_WIDTH, DEFAULT_CANVAS_HEIGHT);
+    renderer.setClearColor(new THREE.Color(clearColor));
     document.body.appendChild(renderer.domElement);
   }
   return renderer;
