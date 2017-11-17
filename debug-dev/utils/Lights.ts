@@ -4,7 +4,7 @@ import * as THREE from 'three';
  * @param options {hex: 颜色, intensity: 强度}
  */
 function createAmbientLight(options: {
-  hex?: string|number,
+  hex?: string|number|THREE.Color,
   intensity?: number,
 } = {}): THREE.AmbientLight {
   const {
