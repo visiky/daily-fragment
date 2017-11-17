@@ -11,7 +11,7 @@ const config = {
   target: 'web', // help: https://webpack.github.io/docs/configuration.html#target
   entry: genEntry(),
   output: {
-    path: path.resolve(__dirname, 'debug-ground/debug-dev-on-browser'),
+    path: path.resolve(__dirname, 'debug-dev/public'),
     filename: '[name].js'
   },
   externals: [{

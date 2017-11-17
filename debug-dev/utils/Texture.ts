@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 
-const IMAGE_ROOT = './assets/images';
+const IMAGE_ROOT = './assets/images/';
 
 // Utils
 export function getTexture(imageName: string): THREE.Texture {
@@ -8,5 +8,5 @@ export function getTexture(imageName: string): THREE.Texture {
 }
 
 export function createWoodTexture(): THREE.Texture {
-  return getTexture('/wood.jpg');
+  return getTexture('wood.jpg');
 }
