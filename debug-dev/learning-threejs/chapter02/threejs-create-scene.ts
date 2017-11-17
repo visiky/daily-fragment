@@ -1,16 +1,16 @@
 import * as THREE from 'three';
-import { createScene } from '../utils/Scene';
-import { createCamera } from '../utils/Camera';
+import { createScene } from '../../utils/Scene';
+import { createCamera } from '../../utils/Camera';
 import { createPlane } from '../classes/PlaneGeometry';
-import { createAmbientLight, createSpotLight } from '../utils/Lights';
+import { createAmbientLight, createSpotLight } from '../../utils/Lights';
 import { createCube } from '../classes/BoxGeometry';
-import { createRenderer } from '../utils/Renderer';
+import { createRenderer } from '../../utils/Renderer';
 import * as debug from 'debug';
-import GUI from '../utils/Global/Gui';
-import { createAxes } from '../utils/Scene/Axes';
+import GUI from '../../utils/Global/Gui';
+import { createAxes } from '../../utils/Scene/Axes';
 import { PositionController } from '../classes/Controller';
-import { createPhongMaterial } from '../utils/Material';
-import { createWoodTexture } from '../utils/Texture';
+import { createPhongMaterial } from '../../utils/Material';
+import { createWoodTexture } from '../../utils/Texture';
 
 const logger = debug('threejs:createScene');
 let renderer: THREE.WebGLRenderer;
@@ -111,11 +111,11 @@ function initScene() {
   scene.add(plane);
 
   const ambientLight = createAmbientLight({
-    hex: 0x0c0c0c,
+    color: 0x0c0c0c,
   });
   scene.add(ambientLight);
   const spotLight = createSpotLight({
-    hex: 0xffffff,
+    color: 0xffffff,
   });
   // 调整位置 - 不然无法显示材质
   spotLight.position.set(-40, 60, -10);

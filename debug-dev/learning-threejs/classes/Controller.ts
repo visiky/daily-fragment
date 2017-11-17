@@ -1,4 +1,4 @@
-import GUI from '../utils/Global/Gui';
+import GUI from '../../utils/Global/Gui';
  /**
   * @todo - 修正格式
   * options - {}[]

@@ -8,11 +8,11 @@ if (!(window as any).Detector.webgl) {
 }
 
 import { IMAGE_BASEURL } from '../configs/constants';
-import { createScene } from '../utils/Scene';
-import { createCamera } from '../utils/Camera';
-import { createRenderer } from '../utils/Renderer';
+import { createScene } from '../../utils/Scene';
+import { createCamera } from '../../utils/Camera';
+import { createRenderer } from '../../utils/Renderer';
 import debug from 'debug';
-import GUI from '../utils/Global/Gui';
+import GUI from '../../utils/Global/Gui';
 
 const logger = debug('threejs:createScene');
 

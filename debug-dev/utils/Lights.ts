@@ -4,25 +4,25 @@ import * as THREE from 'three';
  * @param options {hex: 颜色, intensity: 强度}
  */
 function createAmbientLight(options: {
-  hex?: string|number|THREE.Color,
+  color?: string|number|THREE.Color,
   intensity?: number,
 } = {}): THREE.AmbientLight {
   const {
-    hex = 0x0c0c0c,
+    color = 0x0c0c0c,
     intensity = 1,
   } = options;
-  return new THREE.AmbientLight(hex, intensity);
+  return new THREE.AmbientLight(color, intensity);
 }
 
 function createSpotLight(options: {
-  hex?: string|number,
+  color?: string|number,
   intensity?: number,
 } = {}): THREE.SpotLight {
   const {
-    hex = 0xffffff,
+    color = 0xffffff,
     intensity = 1,
   } = options;
-  const spotLight = new THREE.SpotLight(hex, intensity);
+  const spotLight = new THREE.SpotLight(color, intensity);
 //   spotLight.position.set(-26, 11, -11);
 //   spotLight.angle = 0.2;
 //   spotLight.castShadow = false;

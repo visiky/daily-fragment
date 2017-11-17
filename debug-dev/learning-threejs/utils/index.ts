@@ -1,1 +1,0 @@
-export { getTexture } from './Texture';

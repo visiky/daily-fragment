@@ -1,12 +1,12 @@
-import { createScene } from '../utils/Scene';
-import { createRenderer } from '../utils/Renderer';
-import { createCamera } from '../utils/Camera';
-import Gui from '../utils/Global/Gui';
+import { createScene } from '../../utils/Scene';
+import { createRenderer } from '../../utils/Renderer';
+import { createCamera } from '../../utils/Camera';
+import Gui from '../../utils/Global/Gui';
 // import { createBall } from '../classes/SphereGeometry';
 // import { createPlane } from '../classes/PlaneGeometry';
-// import { createSpotLight } from '../utils/Lights';
+// import { createSpotLight } from '../../utils/Lights';
 import debug from 'debug';
-import { createAxes } from '../utils/Scene/Axes';
+import { createAxes } from '../../utils/Scene/Axes';
 
 const logger = debug('threejs:usingDatGUI');
 logger();

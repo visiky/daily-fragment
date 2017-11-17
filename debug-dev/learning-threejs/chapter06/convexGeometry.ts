@@ -1,7 +1,7 @@
 import * as THREE from 'three';
-import { createRenderer } from '../utils/Renderer';
-import { createCamera } from '../utils/Camera';
-import { createAxes } from '../utils/Scene/Axes';
+import { createRenderer } from '../../utils/Renderer';
+import { createCamera } from '../../utils/Camera';
+import { createAxes } from '../../utils/Scene/Axes';
 
 /**
  * @todo 还没完成

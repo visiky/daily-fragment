@@ -1,9 +1,9 @@
-import { createScene } from '../utils/Scene';
-import { createRenderer } from '../utils/Renderer';
-import { createCamera } from '../utils/Camera';
+import { createScene } from '../../utils/Scene';
+import { createRenderer } from '../../utils/Renderer';
+import { createCamera } from '../../utils/Camera';
 import { PositionController } from '../classes/Controller';
 import debug from 'debug';
-import { createAxes } from '../utils/Scene/Axes';
+import { createAxes } from '../../utils/Scene/Axes';
 
 const logger = debug('threejs:usingDatGUI');
 logger();
