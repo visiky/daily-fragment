@@ -14,3 +14,6 @@ bash.exe.stackdump
 debug-ground/debug-dev-on-browser/libs/three.js.r84/libs/physi.js
 debug-ground/debug-dev-on-browser/libs/three.js.r84/libs/physijs_worker.js
 debug-ground/debug-dev-on-browser/libs/three.js.r84/libs/ammo.js
+
+# draft文件不添
+debug-dev/**/*.draft.*

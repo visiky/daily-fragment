@@ -35,7 +35,7 @@ function addMouseHandler(object: THREE.Object3D, _container?: HTMLElement) {
       return;
     }
     e.preventDefault();
-    rotateObject(object, pageX - e.pageX, pageY - e.pageY);
+    rotateObject(object, e.pageX - pageX, e.pageY - pageY);
 
     pageX = e.pageX;
     pageY = e.pageY;
@@ -60,8 +60,8 @@ function addMouseHandler(object: THREE.Object3D, _container?: HTMLElement) {
  * @desc To Control the Position of Scene in the case of movingMouse
  */
 function rotateObject(object: THREE.Object3D, deltaX: number, deltaY: number) {
-  const rotationX = deltaX / 100;
-  const rotationY = deltaY / 100;
+  const rotationX = deltaX / 200;
+  const rotationY = deltaY / 200;
 
   // 绕y轴旋转
   object.rotation.y += rotationX;
