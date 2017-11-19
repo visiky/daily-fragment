@@ -298,6 +298,8 @@ function run(font) {
     });
 
     requestAnimationFrame(render);
+    // 添加流星运动
+    moveMeteor();
     renderer.autoClear = false;
     renderer.clear();
     renderer.render(scene, camera);
@@ -327,7 +329,7 @@ function addMeteor() {
     map: getTexture('fanscape/bg_meteor.png'),
     color: 0xffffff,
   });
-  for (let i = 0; i < 20; i++) {
+  for (let i = 0; i < Math.random() * 10 + 5; i++) {
     const sprite = new THREE.Sprite(material);
     sprite.position.set(
       (1 - (Math.random() * 2)) * CANVAS_WIDTH,
@@ -338,6 +340,29 @@ function addMeteor() {
     metetors.add(sprite);
     scene.add(sprite);
   }
+}
+
+function moveMeteor() {
+  const speed = _.random(2, 4);
+  if (metetors.size === 0) {
+    addMeteor();
+  } else {
+    metetors.forEach(meteor => {
+      const meteorX = meteor.position.x;
+      const meteorY = meteor.position.y;
+      if (meteorX < -CANVAS_WIDTH / 2 || meteorY < -CANVAS_HEIGHT / 2) {
+        clearMeteor(meteor);
+      } else {
+        meteor.position.x -= speed;
+        meteor.position.y -= speed;
+      }
+    });
+  }
+}
+
+function clearMeteor(metetor: THREE.Sprite) {
+  scene.remove(metetor);
+  metetors.delete(metetor);
 }
 
 new THREE.FontLoader().load('./assets/fonts/gentilis_regular.typeface.json', font => {
